@@ -29,7 +29,7 @@ body::before {
     isolation: isolate;
 }
 
-/* Center all containers */
+
 .container-one,
 .container-two,
 .container-three,
@@ -43,7 +43,7 @@ body::before {
     background-color: #202123;
 }
 
-/* Hide all containers by default */
+
 .container-two,
 .container-three,
 .container-four,
@@ -57,7 +57,7 @@ body::before {
     overflow-y: scroll;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px; /* Adjusted gap */
+    gap: 20px; 
     padding: 10px;
 }
 
@@ -66,7 +66,7 @@ body::before {
     margin: 15px;
 }
 
-/* Updated input styles */
+
 #inputs-div,
 #username-input,
 #phone-number-input,
@@ -132,7 +132,6 @@ body::before {
 }
 
 
-/* Updated username input styles */
 .username input {
     width: 100%;
     height: 2rem;
@@ -144,7 +143,7 @@ body::before {
     padding: 5px;
 }
 
-.username {
+#username {
     text-align: center;
     color: goldenrod;
 }
@@ -153,7 +152,7 @@ body::before {
     font-size: 16px;
 }
 
-/* Updated button styles */
+
 button {
     height: 2rem;
     border-radius: 8px;
@@ -182,11 +181,7 @@ button:hover {
     margin: auto;
 }
 
-.profile {
-    display: flex;
-    background-color: #000000;
-    padding: 10px 0 0 10px;
-}
+
 
 .name-and-others {
     line-height: 0;
@@ -198,29 +193,19 @@ button:hover {
     color: #444654;
 }
 
-#search-restaurants {
-    width: 100%;
-    color: white;
-    background-color: #000000;
-    border: none;
-    height: 2rem;
-    padding: 5px;
-    display: flex;
-    text-align: center;
-    border-radius: 8px;
-}
 
 .restaurant,
 .food-item {
-    background-color: white;
+    background-color: goldenrod;
     margin-top: 15px;
     padding: 5px;
     border-radius: 8px;
+    
 }
 
 .restaurant:hover,
 .food-item:hover {
-    background-color: orange;
+    border: 1px solid white;
     color: white;
 }
 
@@ -230,12 +215,12 @@ button:hover {
 
 .restaurant p,
 .food-item p {
-    color: #444654;
+    color: white;
 }
 
 img {
     width: 100%;
-    height: auto; /* Adjusted height to maintain aspect ratio */
-    max-height: 260px; /* Added max-height */
+    height: auto; 
+    max-height: 260px; 
     border-radius: 10px;
 }
