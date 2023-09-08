@@ -3,82 +3,170 @@ body {
     margin: 0;
     padding: 0;
     background-color: #202123;
+    color: white; 
+    position: relative;
+}
 
+body::before {
+    content: '';
+    background-image: url(./background/image-three.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.35;
+}
+
+.container-one,
+.container-two,
+.container-three,
+.container-four,
+.container-five {
+    isolation: isolate;
 }
 
 /* Center all containers */
-.login-container,
-.container-restaurants,
+.container-one,
 .container-two,
 .container-three,
-.cart-container,
-.container-order-confirmation {
+.container-four,
+.container-five {
     max-width: 450px;
     margin: auto;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    color: white;
-    background-color: #444654;
     margin-top: 5%;
+    background-color: #202123;
 }
-
-form {
-    display: grid;
-    padding: 20px;
-}
-
-.message {
-    padding-bottom: 10px;
-    margin-left: 15px;
-}
-
 
 /* Hide all containers by default */
-.container-restaurants,
 .container-two,
 .container-three,
-.cart-container,
-.container-order-confirmation {
+.container-four,
+.container-five {
     display: none;
 }
 
-/* Show the login container */
-.login-container {
-    display: block;
+.kitchen-div {
+    width: 95%;
+    max-height: 350px;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Adjusted gap */
+    padding: 10px;
 }
 
-.username input {
-    width: 98%;
-    height: 2rem;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    background-color: #000000;
+.inputs-div {
+    display: grid;
+    margin: 15px;
+}
+
+/* Updated input styles */
+#inputs-div,
+#username-input,
+#phone-number-input,
+#delivery-address-input {
+    margin: 15px;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: goldenrod;
     color: white;
     border: none;
     padding: 5px;
-    
+}
+
+#username {
+    color: #000000;
+}
+
+#search-field {
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    border: none;
+    background-color: goldenrod; 
+    color: white;
+    padding: 5px;
+}
+
+.kitchen {
+    border-bottom: 1px solid goldenrod;
+    height: 150px;
+    width: 85%;
+    border-radius: 10px;
+    line-height: 0;
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.kitchen-name {
+    color: goldenrod;
+}
+
+.random-pictures img {
+    height: 150px;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid goldenrod;
+}
+
+.random-pictures {
+    width: 70%;
+    align-self: center;
+    margin: auto;
+    padding-bottom: 15px;
+}
+
+.kitchen-image {
+    height: 80%;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* Updated username input styles */
+.username input {
+    width: 100%;
+    height: 2rem;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    padding: 5px;
 }
 
 .username {
     text-align: center;
+    color: goldenrod;
 }
 
 .username label {
     font-size: 16px;
 }
 
+/* Updated button styles */
 button {
     height: 2rem;
     border-radius: 8px;
-    background-color: #000000;
-    color: white;
+    background-color: orange;
+    color: black;
     border: none;
     margin-top: 1.5rem;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 button:hover {
-    border: 1px solid white;
+    border: 1px solid orange;
 }
 
 .hi-div {
@@ -124,18 +212,20 @@ button:hover {
 
 .restaurant,
 .food-item {
-    background-color: #000000;
+    background-color: white;
     margin-top: 15px;
     padding: 5px;
     border-radius: 8px;
-    line-height: 5px;
 }
 
 .restaurant:hover,
 .food-item:hover {
-    background-color: white;
-    color: #000000;
+    background-color: orange;
+    color: white;
+}
 
+.order-button {
+    border: 1px solid white;
 }
 
 .restaurant p,
@@ -144,6 +234,8 @@ button:hover {
 }
 
 img {
-    width: 100% ;
-    height: 260px;
+    width: 100%;
+    height: auto; /* Adjusted height to maintain aspect ratio */
+    max-height: 260px; /* Added max-height */
+    border-radius: 10px;
 }
