@@ -1,23 +1,25 @@
 // Get references to the necessary elements
-const containerOne = document.querySelector('.container-one');
-const containerTwo = document.querySelector('.container-two');
-const randomPicturesDiv = document.querySelector('.random-pictures');
-const kitchenDivs = document.querySelectorAll('.kitchen');
-const firstFoodImage = document.querySelector('.first-food img');
-const firstFoodName = document.querySelector('.first-food h2');
-const foodListContainer = document.querySelector('.second-food .food-list');
-const selectedFoodImage = document.querySelector('.container-three #food-image');
-const foodName = document.querySelector('.container-three #food-name');
-const foodPriceContainer = document.querySelector('.container-three .food-price');
-const preparationOrderButtons = document.querySelectorAll('.container-three .order-button');
-const enterButton = document.querySelector('#enter-button');
-const usernameInput = document.querySelector('#username-input');
-const usernameElement = document.querySelector('#username');
-const orderedFoodImage = document.querySelector('#ordered-food-image');
-const containerThree = document.querySelector('.container-three');
-const containerFour = document.querySelector('.container-four');
-const containerFive = document.querySelector('.container-five');
-const orderButtons = document.querySelectorAll('.container-three .order-button');
+const containerOne = document.querySelector(".container-one");
+const containerTwo = document.querySelector(".container-two");
+const randomPicturesDiv = document.querySelector(".random-pictures");
+const kitchenDivs = document.querySelectorAll(".kitchen");
+const firstFoodImage = document.querySelector(".first-food img");
+const firstFoodName = document.querySelector(".first-food h2");
+const foodListContainer = document.querySelector(".second-food .food-list");
+const selectedFoodImage = document.querySelector(".container-three #food-image");
+const foodName = document.querySelector(".container-three #food-name");
+const foodPriceContainer = document.querySelector(".container-three .food-price");
+const preparationOrderButtons = document.querySelectorAll(".container-three .order-button");
+const enterButton = document.querySelector("#enter-button");
+const usernameInput = document.querySelector("#username-input");
+const usernameElement = document.querySelector("#username");
+const orderedFoodImage = document.querySelector("#ordered-food-image");
+const containerThree = document.querySelector(".container-three");
+const containerFour = document.querySelector(".container-four");
+const containerFive = document.querySelector(".container-five");
+const orderButtons = document.querySelectorAll(".container-three .order-button");
+const searchInput = document.getElementById("search-field");
+
 
 
 const foodImages = [
@@ -41,17 +43,15 @@ function displayRandomImage() {
 
     randomPicturesDiv.innerHTML = `<img src="${randomImage}" alt="Random Food Image">`;
 }
-
-// Display initial random image
 displayRandomImage();
 
-// Set up a timer to change the image every 5 seconds (adjust as needed)
+
+
 setInterval(displayRandomImage, 5000);
 
 
 
 
-  
 
   // List of food items with image URLs and names
 const kitchenItems = [
@@ -72,44 +72,42 @@ const kitchenItems = [
 // Function to populate the kitchen divs with food images and names
 function populateKitchenDivs() {
     kitchenDivs.forEach((kitchenDiv, index) => {
-        const kitchenItem = kitchenItems[index % kitchenItems.length]; // Ensure cycling through kitchenItems
+        const kitchenItem = kitchenItems[index % kitchenItems.length]; 
 
-        const imgElement = kitchenDiv.querySelector('img.kitchen-image');
+        const imgElement = kitchenDiv.querySelector("img.kitchen-image");
         if (imgElement) {
             imgElement.src = kitchenItem.imageUrl;
             imgElement.alt = kitchenItem.name;
         }
 
-        const nameElement = kitchenDiv.querySelector('p.kitchen-name');
+        const nameElement = kitchenDiv.querySelector("p.kitchen-name");
         if (nameElement) {
             nameElement.textContent = kitchenItem.name;
         }
     });
 }
-
-// Call the function to populate kitchen divs
 populateKitchenDivs();
 
-// Get references to the search input and the kitchen divs
-const searchInput = document.getElementById('search-field');
+
+
 
 // Function to filter and display kitchens based on search input
 function filterKitchens(searchTerm) {
     const searchTermLowerCase = searchTerm.toLowerCase();
 
     kitchenDivs.forEach(kitchenDiv => {
-        const kitchenName = kitchenDiv.querySelector('.kitchen-name').textContent.toLowerCase();
+        const kitchenName = kitchenDiv.querySelector(".kitchen-name").textContent.toLowerCase();
 
         if (kitchenName.includes(searchTermLowerCase)) {
-            kitchenDiv.style.display = 'block';
+            kitchenDiv.style.display = "block";
         } else {
-            kitchenDiv.style.display = 'none';
+            kitchenDiv.style.display = "none";
         }
     });
 }
 
 // Event listener for search input changes
-searchInput.addEventListener('input', function () {
+searchInput.addEventListener("input", function () {
     const searchTerm = this.value;
     filterKitchens(searchTerm);
 });
@@ -363,20 +361,20 @@ function showFoodItems(kitchenName) {
     firstFoodName.textContent = firstFood.name;
 
     // Clear existing content in the food list
-    foodListContainer.innerHTML = '';
+    foodListContainer.innerHTML = "";
 
     // Populate the food list with food items from the clicked kitchen
     clickedKitchen.foodItems.forEach(foodItem => {
         const foodItemPrep = foodItem.preparations[0];
 
-        const foodItemDiv = document.createElement('div');
-        foodItemDiv.classList.add('food-item');
+        const foodItemDiv = document.createElement("div");
+        foodItemDiv.classList.add("food-item");
 
-        const foodItemImage = document.createElement('img');
+        const foodItemImage = document.createElement("img");
         foodItemImage.src = foodItemPrep.imageUrl;
         foodItemImage.alt = foodItem.name;
 
-        const foodItemName = document.createElement('p');
+        const foodItemName = document.createElement("p");
         foodItemName.textContent = foodItem.name;
 
         foodItemDiv.appendChild(foodItemImage);
@@ -386,23 +384,23 @@ function showFoodItems(kitchenName) {
     });
 
     // Show container-two and hide container-one
-    containerTwo.style.display = 'block';
-    containerOne.style.display = 'none';
+    containerTwo.style.display = "block";
+    containerOne.style.display = "none";
 }
 
 
 
 // Attach click event listeners to kitchen divs
 kitchenDivs.forEach(kitchenDiv => {
-    const kitchenName = kitchenDiv.querySelector('p.kitchen-name').textContent;
+    const kitchenName = kitchenDiv.querySelector("p.kitchen-name").textContent;
 
-    kitchenDiv.addEventListener('click', function () {
+    kitchenDiv.addEventListener("click", function () {
         showFoodItems(kitchenName);
     });
     
     // Add this event listener to hide container-one when the kitchen is clicked
-    kitchenDiv.addEventListener('click', function () {
-        containerOne.style.display = 'none';
+    kitchenDiv.addEventListener("click", function () {
+        containerOne.style.display = "none";
     });
 });
 
@@ -416,33 +414,32 @@ function showFoodDetails(foodItem) {
     selectedFoodImage.src = foodItem.preparations[0].imageUrl;
     selectedFoodImage.alt = foodItem.name;
 
-    // Display the food name and price
+
     foodName.textContent = foodItem.name;
     foodPriceContainer.textContent = `Price: ${foodItem.preparations[0].price}`;
 
     // Add event listeners to preparation order buttons
     preparationOrderButtons.forEach((button, index) => {
-        button.addEventListener('click', function () {
-            // Store the ordered food image in local storage
-            localStorage.setItem('orderedFoodImage', foodItem.preparations[index].imageUrl);
+        button.addEventListener("click", function () {
 
-            // Show container-four and hide container-three
-            containerThree.style.display = 'none';
-            containerFour.style.display = 'block';
+            localStorage.setItem("orderedFoodImage", foodItem.preparations[index].imageUrl);
+
+            containerThree.style.display = "none";
+            containerFour.style.display = "block";
         });
     });
 
     // Show container-three and hide container-two
-    containerTwo.style.display = 'none';
-    containerThree.style.display = 'block';
+    containerTwo.style.display = "none";
+    containerThree.style.display = "block";
 }
 
 
 // Attach click event listener to food list items
-foodListContainer.addEventListener('click', function (event) {
-    const clickedFoodItem = event.target.closest('.food-item');
+foodListContainer.addEventListener("click", function (event) {
+    const clickedFoodItem = event.target.closest(".food-item");
     if (clickedFoodItem) {
-        const foodName = clickedFoodItem.querySelector('p').textContent;
+        const foodName = clickedFoodItem.querySelector("p").textContent;
         const clickedKitchen = kitchenData.find(kitchen => {
             return kitchen.foodItems.some(foodItem => foodItem.name === foodName);
         });
@@ -456,25 +453,19 @@ foodListContainer.addEventListener('click', function (event) {
 
 
 
-// Get references to the necessary elements
-
-
-
-
 // Event listener for the "Complete Order" button
-enterButton.addEventListener('click', function () {
+enterButton.addEventListener("click", function () {
     const username = usernameInput.value;
     usernameElement.textContent = username;
 
-    // Show container-five and hide container-four
-    containerFour.style.display = 'none';
-    containerFive.style.display = 'block';
+    containerFour.style.display = "none";
+    containerFive.style.display = "block";
 });
 
 
 
 // Initialize the ordered food image from local storage
-const orderedFoodImageUrl = localStorage.getItem('orderedFoodImage');
+const orderedFoodImageUrl = localStorage.getItem("orderedFoodImage");
 if (orderedFoodImageUrl) {
     orderedFoodImage.src = orderedFoodImageUrl;
 }

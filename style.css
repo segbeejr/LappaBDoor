@@ -76,10 +76,20 @@ body::before {
     border-radius: 10px;
     text-align: center;
     background-color: goldenrod;
-    color: white;
+    color: black;
     border: none;
     padding: 5px;
 }
+
+
+#inputs-div::placeholder,
+#username-input::placeholder,
+#phone-number-input::placeholder,
+#delivery-address-input::placeholder,
+#search-field::placeholder {
+    color: #202123;
+}
+
 
 #username {
     color: #000000;
@@ -92,13 +102,13 @@ body::before {
     width: 100%;
     border: none;
     background-color: goldenrod; 
-    color: white;
+    color: black;
     padding: 5px;
 }
 
 .kitchen {
     border-bottom: 1px solid goldenrod;
-    height: 150px;
+    max-height: 200px;
     width: 85%;
     border-radius: 10px;
     line-height: 0;
@@ -224,3 +234,4 @@ img {
     max-height: 260px; 
     border-radius: 10px;
 }
+
